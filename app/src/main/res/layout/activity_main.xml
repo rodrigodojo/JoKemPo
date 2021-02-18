@@ -4,15 +4,123 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <ImageButton
+        android:id="@+id/buttonPedra"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/holo_green_dark"
+        android:contentDescription="@string/todo"
+        android:onClick="jogadaBotao"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/buttonPapel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/pedra" />
+
+    <ImageButton
+        android:id="@+id/buttonTesoura"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="14dp"
+        android:background="@android:color/holo_red_dark"
+        android:contentDescription="@string/todo"
+        android:onClick="jogadaBotao"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonPapel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonPapel"
+        app:layout_constraintTop_toTopOf="@+id/buttonPapel"
+        app:srcCompat="@drawable/tesoura" />
+
+    <ImageButton
+        android:id="@+id/buttonPapel"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@android:color/holo_orange_light"
+        android:contentDescription="@string/todo"
+        android:onClick="jogadaBotao"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonPedra"
+        app:layout_constraintEnd_toStartOf="@+id/buttonTesoura"
+        app:layout_constraintStart_toEndOf="@+id/buttonPedra"
+        app:layout_constraintTop_toTopOf="@+id/buttonPedra"
+        app:srcCompat="@drawable/papel" />
+
+    <ImageView
+        android:id="@+id/jokempostiker"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/boxestikeman"
+        android:contentDescription="@string/todo"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/buttonPedra"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/boxestikeman"
+        app:tint="@color/white" />
+
+    <ImageButton
+        android:id="@+id/buttonJogador1"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/black"
+        android:contentDescription="@string/todo"
+        android:onClick="jogadaBotao"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/buttonVS"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/screen_background_dark" />
+
+    <ImageButton
+        android:id="@+id/buttonVS"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/black"
+        android:contentDescription="@string/todo"
+        android:onClick="jogadaBotao"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/buttonJogador2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonJogador1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/screen_background_dark" />
+
+    <ImageButton
+        android:id="@+id/buttonJogador2"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@android:color/black"
+        android:contentDescription="@string/todo"
+        android:onClick="jogadaBotao"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonVS"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/screen_background_dark" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
