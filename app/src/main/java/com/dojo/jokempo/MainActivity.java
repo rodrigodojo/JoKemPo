@@ -2,6 +2,7 @@ package com.dojo.jokempo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
@@ -18,6 +19,8 @@ public class MainActivity extends AppCompatActivity{
     ImageButton buttonRock, buttonScissors, buttonPaper, buttonJogador1, buttonJogador2, buttonVS;
     Animation aparecer1, aparecervs, aparecer2;
     int num=0, jogador1=0, jogador2=0;
+    MediaPlayer mediaPlayer;
+
     /*
      0 - estado inicial
      1 - pedra
@@ -29,6 +32,8 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.playsong);
 
         jogador = findViewById(R.id.jokempostiker);
         buttonRock = findViewById(R.id.buttonPedra);
@@ -101,6 +106,7 @@ public class MainActivity extends AppCompatActivity{
     public void jogadaBotao(View view){
 
         buttonJogador1.setScaleX(-1);
+        tocaSom();
 
         switch (view.getId()){
             case(R.id.buttonPedra):
@@ -163,6 +169,18 @@ public class MainActivity extends AppCompatActivity{
         }
         if(jogador1 == 3 && jogador2 ==1 || jogador1 == 1 && jogador2 == 2 || jogador1 == 2 && jogador2 == 3){
             Toast.makeText(this,"Android Ganhou",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void tocaSom(){
+        if(mediaPlayer != null){
+            mediaPlayer.start();
+        }
+    }
+
+    public void pausarSom(){
+        if(mediaPlayer != null){
+            mediaPlayer.stop();
         }
     }
 }
